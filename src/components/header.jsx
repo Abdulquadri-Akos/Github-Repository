@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 
 function Header() {
   const [apiData, setApiData] = useState([]);
-  //   const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch("https://api.github.com/users/abdulquadri-akos")
@@ -23,12 +22,7 @@ function Header() {
 
   return (
     <>
-      <Box
-        as="section"
-        // width={"100%"}
-        margin="0 auto"
-        paddingBlockEnd={50}
-      >
+      <Box as="section" margin="0 auto" paddingBlockEnd={50}>
         <Grid
           h={{ xl: "200", lg: "none" }}
           gridTemplateRows={{

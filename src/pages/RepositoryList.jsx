@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import { useErrorBoundary } from "react-error-boundary";
 
 export default function RepositoryList() {
   const [apiData, setApiData] = useState([]);
@@ -33,6 +34,8 @@ export default function RepositoryList() {
   const noOfPages = Math.ceil(apiData.length / recordsPerPage);
   const numbers = [...Array(noOfPages + 1).keys()].slice(1);
 
+  const { showBoundary } = useErrorBoundary();
+
   useEffect(() => {
     fetch("https://api.github.com/users/Abdulquadri-Akos/repos")
       .then((response) => response.json())
@@ -40,9 +43,9 @@ export default function RepositoryList() {
         setApiData(data);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        showBoundary(error);
       });
-  }, []);
+  }, [showBoundary]);
 
   function previousPage() {
     if (currentPage !== 1) {
