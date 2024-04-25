@@ -14,7 +14,7 @@ export default function Fallback({ error, resetErrorBoundary }) {
           <Text fontSize={"large"} fontWeight={"bold"} textAlign={"center"}>
             Seems something went wrong, check your internet
           </Text>
-          <Text color={"red"}>{error.message}</Text>
+          {error && <Text color={"red"}>{error.message}</Text>}
           <Box marginBlockStart={2}>
             <Button variant={"primary"} onClick={resetErrorBoundary}>
               Reset

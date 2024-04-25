@@ -199,6 +199,16 @@ export default function RepositoryList() {
             </ListItem>
           </List>
         </Box>
+
+        {/* Error Page & Error Boundary Linking */}
+        <Box display={"flex"} gap={4}>
+          <Link to={"*"}>
+            <Button variant={"primary"}>Error Page Test</Button>
+          </Link>
+          <Link to={"/ErrorBoundary"}>
+            <Button variant={"primary"}>Error Boundary Test</Button>
+          </Link>
+        </Box>
       </Box>
       <Footer />
     </>
