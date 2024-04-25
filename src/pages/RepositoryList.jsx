@@ -177,11 +177,9 @@ export default function RepositoryList() {
             </ListItem>
             {numbers.map((number, index) => (
               <ListItem key={index}>
-                <Button variant="primary">
-                  <ChakraLink onClick={() => changeCurrentPage(number)}>
-                    {number}
-                  </ChakraLink>
-                </Button>
+                <ChakraLink onClick={() => changeCurrentPage(number)}>
+                  <Button variant="primary"> {number}</Button>
+                </ChakraLink>
               </ListItem>
             ))}
             <ListItem onClick={nextPage}>
